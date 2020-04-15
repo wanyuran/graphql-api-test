@@ -1,0 +1,6 @@
+# IntelliJ idea
+.idea/
+/idea/
+
+# depencency 
+node_modules/
