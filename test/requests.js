@@ -43,9 +43,47 @@ query ($sessionId: Int!) {
 }
 `;
 
+export const GET_PRESENTATION = gql`
+query ($sessionId: Int!) {
+  presentation(id: $sessionId) {
+    id
+    title
+    description
+    presentationStartDate
+    presentationEndDate
+    presenter
+    offlinePresentation
+    onlinePresentation
+    documentUrl
+    feedbackUrl
+    permissionInfo {
+      isAdmin
+      isOwner
+    }
+    applyInfo {
+      isApply
+      onlineUsers {
+        avatarUrl
+      }
+    }
+  }
+}
+`;
+
 export const CANCEL_SESSION_VOTE = gql`
 mutation ($sessionId: Int!) {
   deleteApplicationNum(id: $sessionId)
 }
-`
-;
+`;
+
+export const ADD_PRESENTATION_VOTE = gql`
+mutation ($sessionId: Int!) {
+  addApplicationNum(id: $sessionId)
+}
+`;
+
+export const CANCEL_PRESENTATION_VOTE = gql`
+mutation ($sessionId: Int!) {
+  deleteApplicationNum(id: $sessionId)
+}
+`;
