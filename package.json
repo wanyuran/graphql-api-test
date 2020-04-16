@@ -4,13 +4,20 @@
     "verbose": true
   },
   "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.9.0",
+    "@babel/polyfill": "^7.8.7",
+    "@babel/preset-env": "^7.9.5",
     "apollo-boost": "^0.4.7",
     "apollo-client": "^2.6.8",
+    "babel-jest": "^25.3.0",
     "graphql": "^15.0.0",
     "jest": "^25.3.0",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "regenerator-runtime": "^0.13.5"
   },
   "scripts": {
     "test": "jest"
-  }
+  },
+  "dependencies": {}
 }
