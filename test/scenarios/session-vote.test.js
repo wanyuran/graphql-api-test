@@ -1,4 +1,4 @@
-import {client, CANCEL_SESSION_VOTE, ADD_SESSION_VOTE, GET_SESSION} from "./requests";
+import {client, CANCEL_SESSION_VOTE, ADD_SESSION_VOTE, GET_SESSION} from "../requests";
 
 const sessionId = 28;
 

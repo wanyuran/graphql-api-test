@@ -1,4 +1,4 @@
-import {client, GET_PRESENTATION, ADD_PRESENTATION_VOTE, CANCEL_PRESENTATION_VOTE} from "./requests";
+import {client, GET_PRESENTATION, ADD_PRESENTATION_VOTE, CANCEL_PRESENTATION_VOTE} from "../requests";
 
 const presentationId = 30;
 
