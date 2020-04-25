@@ -87,3 +87,56 @@ mutation ($sessionId: Int!) {
   deleteApplicationNum(id: $sessionId)
 }
 `;
+export const PUBLISH_SESSION = gql`
+mutation ($title: String!, $description: String!, $teamId: Int!) {
+  createSession(input: {title: $title, description: $description, teamId: $teamId}) {
+    id
+  }
+}
+`;
+
+export const PUBLISH_PRESENTATION = gql`
+mutation ($sessionId: Int, $title: String!, $description: String!, $presenter: String!, $presentationStartDate: String, $presentationEndDate: String, $offlinePresentation: String, $onlinePresentation: String, $teamId: Int!) {
+  createPresentation(input: {sessionId: $sessionId, title: $title, description: $description, presenter: $presenter, presentationStartDate: $presentationStartDate, presentationEndDate: $presentationEndDate, offlinePresentation: $offlinePresentation, onlinePresentation: $onlinePresentation, teamId: $teamId}) {
+    id
+  }
+}
+`;
+
+export const DELETE_SESSION = gql`
+mutation ($sessionId: Int!) {
+  deleteSession(id: $sessionId)
+}
+`;
+
+export const GET_SESSIONS = gql`
+query ($teamId: Int!, $first: Int!, $cursor: String) {
+  getSessionsByTeamId(teamId: $teamId, first: $first, cursor: $cursor) {
+    totalCount
+    edges {
+      node {
+        ... on Session {
+          id
+          title
+          voteNum
+          hero
+          voteInfo {
+            isVote
+          }
+          creator {
+            nickname
+          }
+          claimInfo {
+            isClaimed
+          }
+        }
+      }
+      cursor
+    }
+    pageInfo {
+      endCursor
+      hasNextPage
+    }
+  }
+}
+`;

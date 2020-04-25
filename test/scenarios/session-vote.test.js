@@ -1,8 +1,7 @@
 import {client, CANCEL_SESSION_VOTE, ADD_SESSION_VOTE, GET_SESSION} from "../requests";
 
-const sessionId = 28;
-
 describe("scenario 1: user vote for the exact session and then cancel the vote", () => {
+    const sessionId = 28;
 
     test('user check the exact session', async () => {
         const res = await client
