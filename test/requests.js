@@ -96,8 +96,8 @@ mutation ($title: String!, $description: String!, $teamId: Int!) {
 `;
 
 export const PUBLISH_PRESENTATION = gql`
-mutation ($sessionId: Int, $title: String!, $description: String!, $presenter: String!, $presentationStartDate: String, $presentationEndDate: String, $offlinePresentation: String, $onlinePresentation: String, $teamId: Int!) {
-  createPresentation(input: {sessionId: $sessionId, title: $title, description: $description, presenter: $presenter, presentationStartDate: $presentationStartDate, presentationEndDate: $presentationEndDate, offlinePresentation: $offlinePresentation, onlinePresentation: $onlinePresentation, teamId: $teamId}) {
+mutation ($sessionId: Int, $title: String!, $description: String!, $presenter: String!, $presentationStartDate: String, $presentationEndDate: String, $offlinePresentation: String, $onlinePresentation: String, $teamId: Int!, $orderMealDeadline: String) {
+  createPresentation(input: {sessionId: $sessionId, title: $title, description: $description, presenter: $presenter, presentationStartDate: $presentationStartDate, presentationEndDate: $presentationEndDate, offlinePresentation: $offlinePresentation, onlinePresentation: $onlinePresentation, teamId: $teamId, orderMealDeadline: $orderMealDeadline}) {
     id
   }
 }
@@ -106,6 +106,12 @@ mutation ($sessionId: Int, $title: String!, $description: String!, $presenter: S
 export const DELETE_SESSION = gql`
 mutation ($sessionId: Int!) {
   deleteSession(id: $sessionId)
+}
+`;
+
+export const DELETE_PRESENTATION = gql`
+mutation ($sessionId: Int!) {
+  deletePresentation(id: $sessionId)
 }
 `;
 
@@ -129,6 +135,66 @@ query ($teamId: Int!, $first: Int!, $cursor: String) {
           claimInfo {
             isClaimed
           }
+        }
+      }
+      cursor
+    }
+    pageInfo {
+      endCursor
+      hasNextPage
+    }
+  }
+}
+`;
+
+export const GET_PRESENTATIONS = gql`
+query ($teamId: Int!, $first: Int!, $cursor: String) {
+  getPresentationsByTeamId(teamId: $teamId, first: $first, cursor: $cursor, isHistory: false) {
+    totalCount
+    edges {
+      node {
+        ... on Presentation {
+          id
+          presenter
+          title
+          createdAt
+          applyInfo {
+            isApply
+          }
+          offlineApplyNum
+          onlineApplyNum
+          presentationStartDate
+          hero
+        }
+      }
+      cursor
+    }
+    pageInfo {
+      endCursor
+      hasNextPage
+    }
+  }
+}
+`;
+
+export const GET_HISTORY_PRESENTATIONS = gql`
+query ($teamId: Int!, $first: Int!, $cursor: String) {
+  getPresentationsByTeamId(teamId: $teamId, first: $first, cursor: $cursor, isHistory: true) {
+    totalCount
+    edges {
+      node {
+        ... on Presentation {
+          id
+          presenter
+          title
+          createdAt
+          applyInfo {
+            isApply
+          }
+          offlineApplyNum
+          onlineApplyNum
+          presentationStartDate
+          hero
         }
       }
       cursor

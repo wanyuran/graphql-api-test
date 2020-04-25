@@ -3,8 +3,8 @@ import {client, PUBLISH_SESSION, GET_SESSIONS, DELETE_SESSION} from "../requests
 
 describe("scenario 3: user publish a session and then delete it", () => {
     const random = Math.floor(Math.random() * 1000);
-    const title = "api-test" + random;
-    const description = "api-test" + random;
+    const title = "api-test-session-title" + random;
+    const description = "api-test-session-description" + random;
     const teamId = 24;
     let sessionId;
 
@@ -20,7 +20,7 @@ describe("scenario 3: user publish a session and then delete it", () => {
             });
         // console.log("______________\n", res.data, "title:" + title, "description:" + description, "\n____________");
         sessionId = res.data.createSession.id;
-        expect(res.data.createSession.id).not.toBeNull();
+        expect(sessionId).not.toBeUndefined();
     });
 
     test("session published displayed in the session list", async () => {
@@ -56,9 +56,9 @@ describe("scenario 3: user publish a session and then delete it", () => {
 
         let cursor = "";
         let sessions = [];
-        let hasNextPage = true;
+        let hasNextPage;
 
-        while (hasNextPage) {
+        do {
             let res = await client
                 .query({
                     query: GET_SESSIONS,
@@ -68,17 +68,19 @@ describe("scenario 3: user publish a session and then delete it", () => {
                         cursor: cursor
                     }
                 });
-            // console.log("++++++++++\n" + JSON.stringify(res.data) + "\n++++++++++");
+            console.log("++++++++++\n" + JSON.stringify(res.data) + "\n++++++++++");
 
             let sessionArr = res.data.getSessionsByTeamId.edges;
             hasNextPage = res.data.getSessionsByTeamId.pageInfo.hasNextPage;
             cursor = sessionArr[sessionArr.length - 1].cursor;
-            // console.log("\n", "cursor:" + cursor, "\n", "hasNextPage:" + hasNextPage, "\n");
+            console.log("\n", "cursor:" + cursor, "\n", "hasNextPage:" + hasNextPage, "\n");
 
             for (let j = 0; j < sessionArr.length; j++) {
                 sessions.push(res.data.getSessionsByTeamId.edges[j].node.title);
             }
         }
+        while (hasNextPage);
+
         // console.log("++++++++++\n" + sessions + "\n++++++++++");
         expect(sessions).toContain(title);
     });

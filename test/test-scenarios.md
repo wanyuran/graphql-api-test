@@ -16,13 +16,13 @@ scenario 3: user publish a session and then delete it
 steps:
     1、publish a session
     2、session published displayed in the session list
-    3、cancel the session published
+    3、delete the session published
 
 scenario 4: user publish a presentation and then delete it
 steps:
-    1、publish a session
-    2、session published displayed in the presentation list
-    3、cancel the presentation published
+    1、publish a presentation
+    2、presentation published displayed in the presentation list
+    3、delete the presentation published
     
 scenario 5: publisher search the exact session and edit it
 steps:
