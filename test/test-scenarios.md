@@ -24,17 +24,13 @@ steps:
     2、presentation published displayed in the presentation list
     3、delete the presentation published
     
-scenario 5: publisher search the exact session, then edit it
+scenario 5: publisher use the keyword to search the matched sessions & presentations, then edit the first of them
 steps:
-    1、search the exact session
-    2、edit the exact session and update 
-
-scenario 6: publisher search the exact presentation, then edit it
-steps:
-    1、search the exact presentation
-    2、edit the exact presentation and update  
-    
-scenario 7: publisher check the exact presentation in history and update its file address & feedback url
+    1、publisher use the keyword to search the matched sessions & presentations,
+    2、edit the first searched session and update 
+    3、edit the first searched presentation and update 
+     
+scenario 6: publisher check the exact presentation in history and update its file address & feedback url
 steps:
     1、check the exact presentation in history
     2、update its file address
