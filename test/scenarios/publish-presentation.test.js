@@ -1,13 +1,14 @@
-import {client, PUBLISH_PRESENTATION, GET_PRESENTATIONS, DELETE_PRESENTATION} from "../requests";
+import { client } from "../../helper/requests";
+import { PUBLISH_PRESENTATION, GET_PRESENTATIONS, DELETE_PRESENTATION} from "../../helper/presentation";
 
 describe("scenario 4: user publish a presentation and then delete it", () => {
     const random = Math.floor(Math.random() * 1000);
     const title = "api-test-presentation-title" + random;
     const description = "api-test-presentation-description" + random;
     const presenter = "wyr-test";
-    const presentationStartDate = Date.UTC(2020, 4, 26, 11, 30).toString();
-    const presentationEndDate = Date.UTC(2020, 4, 26, 12, 30).toString();
-    const orderMealDeadline = Date.UTC(2020, 4, 25, 18, 30).toString();
+    const presentationStartDate = new Date(2020, 4, 26, 11, 30).getTime().toString();
+    const presentationEndDate = new Date(2020, 4, 26, 12, 30).getTime().toString();
+    const orderMealDeadline = new Date(2020, 4, 25, 18, 30).getTime().toString();
     const onlinePresentation = "12345678";
     const offlinePresentation = "Shenzhen Office";
     const teamId = 24;
@@ -31,7 +32,7 @@ describe("scenario 4: user publish a presentation and then delete it", () => {
             });
         presentationId = res.data.createPresentation.id;
         console.log("______________\n", res.data, "\ntitle:" + title, "\ndescription:" + description, "\nsessionId:" + presentationId, "\n____________");
-        expect(presentationId).not.toBeUndefined();
+        expect(presentationId).toBeDefined();
     });
 
 

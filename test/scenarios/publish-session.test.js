@@ -1,4 +1,5 @@
-import {client, PUBLISH_SESSION, GET_SESSIONS, DELETE_SESSION} from "../requests";
+import { client } from "../../helper/requests";
+import { PUBLISH_SESSION, GET_SESSIONS, DELETE_SESSION} from "../../helper/session";
 
 
 describe("scenario 3: user publish a session and then delete it", () => {
@@ -20,40 +21,10 @@ describe("scenario 3: user publish a session and then delete it", () => {
             });
         // console.log("______________\n", res.data, "title:" + title, "description:" + description, "\n____________");
         sessionId = res.data.createSession.id;
-        expect(sessionId).not.toBeUndefined();
+        expect(sessionId).toBeDefined();
     });
 
     test("session published displayed in the session list", async () => {
-        // let res = {
-        //     "data": {
-        //         "getSessionsByTeamId": {
-        //             "totalCount": 0,
-        //             "edges": [{
-        //                 "node": {
-        //                     "id": 0,
-        //                     "title": null,
-        //                     "voteNum": 0,
-        //                     "hero": null,
-        //                     "voteInfo": {
-        //                         "isVote": false,
-        //                     },
-        //                     "creator": {
-        //                         "nickname": null,
-        //                     },
-        //                     "claimInfo": {
-        //                         "isClaimed": false,
-        //                     },
-        //                 },
-        //                 "cursor": "",
-        //             }],
-        //             "pageInfo": {
-        //                 "endCursor": "",
-        //                 "hasNextPage": true,
-        //             },
-        //         }
-        //     }
-        // };
-
         let cursor = "";
         let sessions = [];
         let hasNextPage;
@@ -68,12 +39,12 @@ describe("scenario 3: user publish a session and then delete it", () => {
                         cursor: cursor
                     }
                 });
-            console.log("++++++++++\n" + JSON.stringify(res.data) + "\n++++++++++");
+            // console.log("++++++++++\n" + JSON.stringify(res.data) + "\n++++++++++");
 
             let sessionArr = res.data.getSessionsByTeamId.edges;
             hasNextPage = res.data.getSessionsByTeamId.pageInfo.hasNextPage;
             cursor = sessionArr[sessionArr.length - 1].cursor;
-            console.log("\n", "cursor:" + cursor, "\n", "hasNextPage:" + hasNextPage, "\n");
+            // console.log("\n", "cursor:" + cursor, "\n", "hasNextPage:" + hasNextPage, "\n");
 
             for (let j = 0; j < sessionArr.length; j++) {
                 sessions.push(res.data.getSessionsByTeamId.edges[j].node.title);

@@ -24,16 +24,16 @@ steps:
     2、presentation published displayed in the presentation list
     3、delete the presentation published
     
-scenario 5: publisher search the exact session and edit it
+scenario 5: publisher search the exact session, then edit it
 steps:
     1、search the exact session
-    2、edit the exact session and update    
-    
-scenario 6: publisher search the exact presentation and edit it
+    2、edit the exact session and update 
+
+scenario 6: publisher search the exact presentation, then edit it
 steps:
     1、search the exact presentation
-    2、edit the exact session and update
-
+    2、edit the exact presentation and update  
+    
 scenario 7: publisher check the exact presentation in history and update its file address & feedback url
 steps:
     1、check the exact presentation in history
