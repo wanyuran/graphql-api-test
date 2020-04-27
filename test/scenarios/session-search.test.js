@@ -2,7 +2,7 @@ import { EDIT_SESSION, SEARCH_SESSION} from "../../helper/session";
 import { EDIT_PRESENTATION } from "../../helper/presentation";
 import {client} from "../../helper/requests";
 
-describe("scenario 5: publisher search the exact session and presentation, then edit them", () => {
+describe("scenario 5: publisher use the keyword to search the matched sessions & presentations, then edit the first of them", () => {
     let targetSessions = [];
     let targetPresentations = [];
     const random = Math.floor(Math.random() * 1000);
@@ -16,7 +16,7 @@ describe("scenario 5: publisher search the exact session and presentation, then 
     const presentationEndDate = new Date(2020,5,30,15,30).getTime().toString();
     const orderMealDeadline = new Date(2020,5,29,18,30).getTime().toString();
 
-    test("search the exact session", async () => {
+    test("publisher use the keyword to search the matched sessions & presentations", async () => {
         const keyword = "test";
         let cursor = "";
         let results = [];
