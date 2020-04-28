@@ -37,11 +37,12 @@ steps:
     3、update its file address
     4、update its feedback url   
     
-scenario 8: user create a subscription serial and check my subscriptions
+scenario 8: user create a subscription serial and check my subscriptions, and delete the subscription
 steps: 
     1、user edit his personal info
     2、create a subscribe serial
     3、check my subscription list
+    4、delete the subscription created
    
 scenario 9: user subscribe a serial and cancel the subscription
 steps: 

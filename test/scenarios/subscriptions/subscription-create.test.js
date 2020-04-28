@@ -1,7 +1,7 @@
 import {client} from "../../../helper/requests";
 import {EDIT_MY_INFO, CREATE_SUBSCRIPTION, GET_MY_SUBSCRIPTIONS} from "../../../helper/subcription";
 
-// 该test suite会产生冗余的数据，请谨慎使用！！
+// 该test suite因为delete api还没有做，会产生冗余的数据，请谨慎使用！！
 
 describe("scenario 8: user create a subscription serial and check my subscriptions, then delete it", () => {
     const random = Math.floor(Math.random() * 100);
