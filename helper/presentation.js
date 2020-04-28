@@ -27,6 +27,42 @@ query ($sessionId: Int!) {
 }
 `;
 
+export const GET_PRESENTATION_IN_HISTORY = gql`
+query ($sessionId: Int!) {
+  presentation(id: $sessionId) {
+    id
+    title
+    description
+    presentationStartDate
+    presentationEndDate
+    presenter
+    offlinePresentation
+    onlinePresentation
+    documentUrl
+    feedbackUrl
+    orderMealDeadline
+    hero
+    permissionInfo {
+      isAdmin
+      isOwner
+    }
+    applyInfo {
+      isApply
+      onlineUsers {
+        avatarUrl
+      }
+    }
+    orderMealNum
+    orderMealInfo {
+      isOrderMealApply
+      orderMealUsers {
+        avatarUrl
+      }
+    }
+  }
+}
+`;
+
 
 export const ADD_PRESENTATION_VOTE = gql`
 mutation ($sessionId: Int!) {
@@ -119,5 +155,17 @@ mutation ($sessionId: Int, $title: String!, $description: String!, $presenter: S
   updatePresentation(id: $id, input: {sessionId: $sessionId, title: $title, description: $description, presenter: $presenter, presentationStartDate: $presentationStartDate, presentationEndDate: $presentationEndDate, offlinePresentation: $offlinePresentation, onlinePresentation: $onlinePresentation, orderMealDeadline: $orderMealDeadline, teamId: $teamId}) {
     id
   }
+}
+`;
+
+export const UPDATE_DOCUMENT_URL = gql`
+mutation ($id: Int!, $value: String!) {
+  updateDocumentUrl(id: $id, documentUrl: $value)
+}
+`;
+
+export const UPDATE_FEEDBACK_URL = gql`
+mutation ($id: Int!, $value: String!) {
+  updateFeedbackUrl(id: $id, feedbackUrl: $value)
 }
 `;

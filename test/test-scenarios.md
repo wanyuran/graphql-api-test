@@ -30,11 +30,12 @@ steps:
     2、edit the first searched session and update 
     3、edit the first searched presentation and update 
      
-scenario 6: publisher check the exact presentation in history and update its file address & feedback url
+scenario 6: team creator check the exact presentation in history and update its file address & feedback url
 steps:
-    1、check the exact presentation in history
-    2、update its file address
-    3、update its feedback url   
+    1、check the presentations in history 
+    2、check the exact presentation in history
+    3、update its file address
+    4、update its feedback url   
     
 scenario 8: user edit his personal info
     
