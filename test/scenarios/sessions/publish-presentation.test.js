@@ -1,5 +1,5 @@
-import { client } from "../../helper/requests";
-import { PUBLISH_PRESENTATION, GET_PRESENTATIONS, DELETE_PRESENTATION} from "../../helper/presentation";
+import { client } from "../../../helper/requests";
+import { PUBLISH_PRESENTATION, GET_PRESENTATIONS, DELETE_PRESENTATION} from "../../../helper/presentation";
 
 describe("scenario 4: user publish a presentation and then delete it", () => {
     const random = Math.floor(Math.random() * 1000);

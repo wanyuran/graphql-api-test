@@ -1,5 +1,5 @@
-import { client } from "../../helper/requests";
-import { PUBLISH_SESSION, GET_SESSIONS, DELETE_SESSION} from "../../helper/session";
+import { client } from "../../../helper/requests";
+import { PUBLISH_SESSION, GET_SESSIONS, DELETE_SESSION} from "../../../helper/session";
 
 
 describe("scenario 3: user publish a session and then delete it", () => {

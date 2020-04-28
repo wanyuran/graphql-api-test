@@ -1,5 +1,5 @@
-import {CANCEL_SESSION_VOTE, ADD_SESSION_VOTE, GET_SESSION} from "../../helper/session";
-import {client} from "../../helper/requests";
+import {CANCEL_SESSION_VOTE, ADD_SESSION_VOTE, GET_SESSION} from "../../../helper/session";
+import {client} from "../../../helper/requests";
 
 describe("scenario 1: user vote for the exact session and then cancel the vote", () => {
     const sessionId = 28;

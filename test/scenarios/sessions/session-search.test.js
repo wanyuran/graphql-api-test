@@ -1,6 +1,6 @@
-import { EDIT_SESSION, SEARCH_SESSION} from "../../helper/session";
-import { EDIT_PRESENTATION } from "../../helper/presentation";
-import {client} from "../../helper/requests";
+import { EDIT_SESSION, SEARCH_SESSION} from "../../../helper/session";
+import { EDIT_PRESENTATION } from "../../../helper/presentation";
+import {client} from "../../../helper/requests";
 
 describe("scenario 5: publisher use the keyword to search the matched sessions & presentations, then edit the first of them", () => {
     let targetSessions = [];

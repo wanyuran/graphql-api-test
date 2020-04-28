@@ -1,5 +1,5 @@
-import { client } from "../../helper/requests";
-import { GET_PRESENTATION, ADD_PRESENTATION_VOTE, CANCEL_PRESENTATION_VOTE} from "../../helper/presentation";
+import { client } from "../../../helper/requests";
+import { GET_PRESENTATION, ADD_PRESENTATION_VOTE, CANCEL_PRESENTATION_VOTE} from "../../../helper/presentation";
 
 describe("scenario 2: user vote for the exact presentation and then cancel the vote", () => {
     const presentationId = 30;

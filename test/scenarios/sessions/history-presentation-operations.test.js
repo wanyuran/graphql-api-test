@@ -1,10 +1,10 @@
-import {client} from "../../helper/requests";
+import {client} from "../../../helper/requests";
 import {
     UPDATE_DOCUMENT_URL,
     UPDATE_FEEDBACK_URL,
     GET_HISTORY_PRESENTATIONS,
     GET_PRESENTATION_IN_HISTORY
-} from "../../helper/presentation";
+} from "../../../helper/presentation";
 
 describe("scenario 6: team creator check the exact presentation in history and update its file address & feedback url", () => {
     const teamId = 24;
