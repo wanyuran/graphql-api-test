@@ -9,9 +9,10 @@ describe("scenario 8: user create a subscription serial and check my subscriptio
     let createTeamId;
 
     test("user edit his personal info", async () => {
-        const nickname = "万小慢";
+        const random = Math.ceil(Math.random() * 10)
+        const nickname = "万小慢" + random.toString();
         const avatarUrl = "https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eq6DHbHFRW5L4ImZSL8eTicUfASTGVIFCPRbjicfPjPfaq5JxqoLELG2ia5LCcr6gISwtNGa7vvs0MIA/132";
-        const email = "123@123.com";
+        const email = random.toString() + "@123.com";
 
         const res = await client
             .mutate({
