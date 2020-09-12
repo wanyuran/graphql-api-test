@@ -16,7 +16,7 @@
     "babel-jest": "^25.3.0",
     "graphql": "^15.0.0",
     "jest": "^25.3.0",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "regenerator-runtime": "^0.13.5"
   },
   "scripts": {
